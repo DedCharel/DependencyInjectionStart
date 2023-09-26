@@ -14,7 +14,7 @@ class Component {
     }
 
     fun inject(activity: Activity){
-        val computer = getComputer()
-        val keyboard = Keyboard()
+
+        activity.keyboard = Keyboard()
     }
 }
