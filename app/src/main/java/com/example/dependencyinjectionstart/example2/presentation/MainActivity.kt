@@ -14,11 +14,15 @@ class MainActivity : AppCompatActivity() {
     lateinit var viewModel: ExampleViewModel
 
     private val component by lazy {
-        DaggerApplicationComponent
-            .builder()
-            .context(application)
-            .timeMillis(System.currentTimeMillis())
-            .build()
+        //***** Используем Builder для построения графа зависимостей *****
+//        DaggerApplicationComponent
+//            .builder()
+//            .context(application)
+//            .timeMillis(System.currentTimeMillis())
+//            .build()
+        //***** Используем Factory для построения графа зависимостей *****
+        DaggerApplicationComponent.factory()
+            .create(application, System.currentTimeMillis())
     }
 
 
